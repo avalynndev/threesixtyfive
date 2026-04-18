@@ -44,7 +44,6 @@ export function getWeeksLived(dob: string | null): number {
   return Math.floor((now.getTime() - birth.getTime()) / (7 * 86_400_000));
 }
 
-// ── Color utilities ─────────────────────────────────────────────
 export function hexToRgba(hex: string, alpha: number): string {
   const r = parseInt(hex.slice(1, 3), 16);
   const g = parseInt(hex.slice(3, 5), 16);
@@ -52,7 +51,6 @@ export function hexToRgba(hex: string, alpha: number): string {
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
 
-// ── Canvas drawing ───────────────────────────────────────────────
 export function drawYearWallpaper(
   ctx: CanvasRenderingContext2D,
   w: number,
@@ -103,7 +101,6 @@ export function drawYearWallpaper(
     ctx.fill();
   }
 
-  // Stats line
   const { daysLeft, percent } = getYearStats();
   const gridH = cellSize * rows + gap * (rows - 1);
   const statsY = startY + gridH + h * 0.03;
@@ -255,14 +252,12 @@ export function drawGoalWallpaper(
     progress = Math.min(0.9999, Math.max(0, daysRemaining / totalDays));
   }
 
-  // Background ring
   ctx.strokeStyle = "rgba(255,255,255,0.1)";
   ctx.lineWidth = 6;
   ctx.beginPath();
   ctx.arc(cx, cy, r, 0, Math.PI * 2);
   ctx.stroke();
 
-  // Progress arc
   if (progress > 0) {
     ctx.strokeStyle = accentColor;
     ctx.lineWidth = 6;
@@ -272,14 +267,12 @@ export function drawGoalWallpaper(
     ctx.stroke();
   }
 
-  // Days number
   ctx.fillStyle = accentColor;
   ctx.font = `bold ${w * 0.14}px Inter, sans-serif`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   ctx.fillText(String(daysRemaining), cx, cy - 4);
 
-  // Label
   ctx.fillStyle = "rgba(255,255,255,0.5)";
   ctx.font = `${w * 0.03}px Inter, sans-serif`;
   ctx.fillText(
@@ -288,7 +281,6 @@ export function drawGoalWallpaper(
     cy + h * 0.08,
   );
 
-  // Goal name
   if (goalName) {
     ctx.fillStyle = accentColor;
     ctx.font = `600 ${w * 0.035}px Inter, sans-serif`;
@@ -296,7 +288,6 @@ export function drawGoalWallpaper(
   }
 }
 
-// ── URL builder ──────────────────────────────────────────────────
 export function buildWallpaperURL(state: AppState): string | null {
   if (!state.selectedType || !state.country) return null;
 

@@ -30,7 +30,7 @@ export function Hero() {
           className="fade-in-up mb-6 text-6xl font-bold leading-none tracking-tight md:text-8xl"
           style={{ animationDelay: "100ms" }}
         >
-          <span className="block text-white">Your year.</span>
+          <span className="block text-foreground">Your year.</span>
           <span
             className="block"
             style={{
@@ -49,23 +49,23 @@ export function Hero() {
           time.
         </p>
 
-        <div className="fade-in-up fade-in-up-3 mx-auto mb-10 flex w-fit items-center gap-6 rounded-full border border-white/10 bg-white/5 px-6 py-3 font-mono text-sm backdrop-blur-sm">
-          <span className="text-white">
+        <div className="fade-in-up fade-in-up-3 mx-auto mb-10 flex w-fit items-center gap-6 rounded-full border border-foreground/10 bg-foreground/5 px-6 py-3 font-mono text-sm backdrop-blur-sm">
+          <span className="text-foreground/80">
             Day <span className="font-semibold">{day}</span>
           </span>
-          <span className="h-3 w-px bg-white/20" />
-          <span className="text-white">
+          <span className="h-3 w-px bg-foreground/20" />
+          <span className="text-foreground/80">
             <span className="font-semibold">{percent}%</span> done
           </span>
-          <span className="h-3 w-px bg-white/20" />
-          <span className="text-neutral-400">
-            <span className="font-semibold text-white">{daysLeft}</span> left
+          <span className="h-3 w-px bg-foreground/20" />
+          <span className="text-foreground/80">
+            <span className="font-semibold">{daysLeft}</span> left
           </span>
         </div>
 
         <a
           href="#types"
-          className="fade-in-up fade-in-up-4 inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-3.5 text-sm font-semibold text-black transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(255,255,255,0.2)]"
+          className="fade-in-up fade-in-up-4 inline-flex items-center gap-2 rounded-2xl bg-background px-6 py-3.5 text-sm font-semibold text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(255,255,255,0.2)]"
         >
           Get Started
           <svg
@@ -89,9 +89,9 @@ export function Hero() {
             return (
               <div
                 key={delay}
-                className={`h-10 w-10 rounded-sm border border-white ${
+                className={`h-10 w-10 rounded-sm border border-foreground ${
                   isFilled
-                    ? "grid-cell-filled bg-white"
+                    ? "grid-cell-filled bg-foreground"
                     : "grid-cell-empty bg-transparent"
                 } anim-delay-${delay}`}
               />
