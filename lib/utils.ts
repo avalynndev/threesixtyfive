@@ -313,5 +313,5 @@ export function buildWallpaperURL(state: AppState): string | null {
       params.set("goalName", encodeURIComponent(state.goalName));
   }
 
-  return `${WORKER_URL}/generate?${params.toString()}`;
+  return `${WORKER_URL}/api/generate?${params.toString()}`;
 }
