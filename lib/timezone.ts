@@ -64,3 +64,66 @@ export const countryTimezones: Record<string, string> = {
   us: "America/New_York",
   vn: "Asia/Ho_Chi_Minh",
 };
+
+
+
+export function getTimezone(countryCode: string): string {
+  return countryTimezones[countryCode.toLowerCase()] || "UTC";
+}
+
+export function getDateInTimezone(timezone: string): {
+  year: number;
+  month: number;
+  day: number;
+} {
+  const now = new Date();
+  const formatter = new Intl.DateTimeFormat("en-CA", {
+    timeZone: timezone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
+  const parts = formatter.formatToParts(now);
+  return {
+    year: parseInt(parts.find((p) => p.type === "year")!.value),
+    month: parseInt(parts.find((p) => p.type === "month")!.value),
+    day: parseInt(parts.find((p) => p.type === "day")!.value),
+  };
+}
+
+export function getDayOfYear(year: number, month: number, day: number): number {
+  const date = new Date(year, month - 1, day);
+  const start = new Date(year, 0, 0);
+  return Math.floor((date.getTime() - start.getTime()) / 86_400_000);
+}
+
+export function getWeekOfYear(
+  year: number,
+  month: number,
+  day: number,
+): number {
+  const date = new Date(year, month - 1, day);
+  const firstDay = new Date(year, 0, 1);
+  const daysSinceStart = Math.floor(
+    (date.getTime() - firstDay.getTime()) / 86_400_000,
+  );
+  return Math.ceil((daysSinceStart + firstDay.getDay() + 1) / 7);
+}
+
+export function getWeeksBetween(startDate: Date, endDate: Date): number {
+  return Math.floor(
+    (endDate.getTime() - startDate.getTime()) / (7 * 86_400_000),
+  );
+}
+
+export function getDaysBetween(startDate: Date, endDate: Date): number {
+  return Math.ceil((endDate.getTime() - startDate.getTime()) / 86_400_000);
+}
+
+export function isLeapYear(year: number): boolean {
+  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+}
+
+export function getDaysInYear(year: number): number {
+  return isLeapYear(year) ? 366 : 365;
+}
