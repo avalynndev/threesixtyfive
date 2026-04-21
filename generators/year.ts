@@ -35,9 +35,16 @@ export function generateYearCalendar(options: YearOptions): string {
   const rows = Math.ceil(totalDays / cols);
 
   const clockSpace = height * (clockHeight + 0.05);
+  const statsReserved = height * 0.07;
   const padding = width * 0.2;
   const gap = Math.max(3, width * 0.008);
-  const cellSize = (width - padding * 2 - gap * (cols - 1)) / cols;
+
+  const availableWidth = width - padding * 2;
+  const availableHeight = height - clockSpace - height * 0.02 - statsReserved;
+
+  const cellByWidth = (availableWidth - gap * (cols - 1)) / cols;
+  const cellByHeight = (availableHeight - gap * (rows - 1)) / rows;
+  const cellSize = Math.min(cellByWidth, cellByHeight);
   const dotRadius = (cellSize / 2) * 0.85;
 
   const gridWidth = cellSize * cols + gap * (cols - 1);
@@ -68,7 +75,7 @@ export function generateYearCalendar(options: YearOptions): string {
 
   const daysRemaining = totalDays - dayOfYear;
   const progressPercent = Math.round((dayOfYear / totalDays) * 100);
-  const statsY = startY + gridHeight + height * 0.025;
+  const statsY = startY + gridHeight + statsReserved * 0.6;
 
   const statsContent =
     `<tspan fill="${parseColor(accentColor)}" font-family="Inter" font-weight="500">${daysRemaining} days left</tspan>` +

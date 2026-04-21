@@ -117,7 +117,7 @@ export function Navbar() {
           <ModeToggle />
 
           <Link
-            href="https://github.com/"
+            href="https://github.com/avalynndev/threesixtyfive"
             target="_blank"
             rel="noopener noreferrer"
           >

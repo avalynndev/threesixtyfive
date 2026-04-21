@@ -82,7 +82,7 @@ export function Footer() {
             <p className="text-sm text-foreground/80">Time, visualized</p>
           </div>
           <Link
-            href="https://github.com/"
+            href="https://github.com/avalynndev/threesixtyfive"
             target="_blank"
             rel="noopener noreferrer"
           >

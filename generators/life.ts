@@ -48,11 +48,16 @@ export function generateLifeCalendar(options: LifeOptions): string {
   const rows = lifespan;
 
   const clockSpace = height * (clockHeight + 0.05);
+  const statsReserved = height * 0.06;
   const padding = width * 0.15;
   const gap = Math.max(1.5, width * 0.003);
+
+  const availableWidth = width - padding * 2;
+  const availableHeight = height - clockSpace - height * 0.02 - statsReserved;
+
   const cellSize = Math.min(
-    (width - padding * 2 - gap * (cols - 1)) / cols,
-    (height - clockSpace - height * 0.1 - gap * (rows - 1)) / rows,
+    (availableWidth - gap * (cols - 1)) / cols,
+    (availableHeight - gap * (rows - 1)) / rows,
   );
   const dotRadius = (cellSize / 2) * 0.85;
 
@@ -84,7 +89,7 @@ export function generateLifeCalendar(options: LifeOptions): string {
 
   const weeksRemaining = totalWeeks - weeksLived;
   const progressPercent = Math.round((weeksLived / totalWeeks) * 100);
-  const statsY = startY + gridHeight + height * 0.025;
+  const statsY = startY + gridHeight + statsReserved * 0.6;
 
   const statsContent =
     `<tspan fill="${parseColor(accentColor)}" font-family="Inter" font-weight="500">${weeksRemaining.toLocaleString()} weeks left</tspan>` +

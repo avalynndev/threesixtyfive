@@ -67,7 +67,7 @@ export function WallpaperPreview({ state }: WallpaperPreviewProps) {
   }, [state]);
 
   return (
-    <div className="sticky top-28 flex flex-col items-center">
+    <div className="lg:sticky top-28 flex flex-col items-center">
       <div
         className="relative rounded-[40px] p-2.5"
         style={{

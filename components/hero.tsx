@@ -32,13 +32,10 @@ export function Hero() {
         >
           <span className="block text-foreground">Your year.</span>
           <span
-            className="block"
-            style={{
-              background: "linear-gradient(135deg, #ffffff 0%, #737373 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
+            className="block bg-clip-text text-transparent 
+             bg-gradient-to-br 
+             from-neutral-900 to-neutral-500 
+             dark:from-white"
           >
             Visualized.
           </span>
