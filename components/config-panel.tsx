@@ -23,8 +23,8 @@ function Label({
 }) {
   return (
     <div className="mb-2.5 flex items-baseline justify-between">
-      <span className="text-sm font-medium text-white">{children}</span>
-      {hint && <span className="text-xs text-neutral-500">{hint}</span>}
+      <span className="text-sm font-medium text-foreground">{children}</span>
+      {hint && <span className="text-xs text-foreground/80">{hint}</span>}
     </div>
   );
 }
@@ -46,7 +46,7 @@ function Select({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className={cn(
-          "w-full appearance-none rounded-lg border border-white/10 bg-neutral-950 px-4 py-3 pr-10 text-sm text-white transition-colors focus:border-white focus:outline-none",
+          "w-full appearance-none rounded-lg border border-foreground/10 bg-background px-4 py-3 pr-10 text-sm text-foreground transition-colors focus:border-foreground focus:outline-none",
           className,
         )}
       >
@@ -93,7 +93,7 @@ function Input({
       min={min}
       max={max}
       className={cn(
-        "w-full rounded-lg border border-white/10 bg-neutral-950 px-4 py-3 text-sm text-white placeholder-neutral-600 transition-colors focus:border-white focus:outline-none",
+        "w-full rounded-lg border border-foreground/10 bg-background px-4 py-3 text-sm text-foreground placeholder-neutral-600 transition-colors focus:border-foreground focus:outline-none",
         className,
       )}
     />
@@ -127,19 +127,16 @@ export function ConfigPanel({ state, onChange }: ConfigPanelProps) {
 
   return (
     <div className="py-6">
-      {/* Section header */}
       <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-neutral-600">
         Personalize
       </p>
       <h2 className="mb-8 text-4xl font-bold tracking-tight">Make it yours</h2>
 
-      {/* Selected indicator */}
-      <div className="mb-8 inline-flex items-center gap-2 rounded-lg border border-white/10 bg-neutral-900 px-4 py-2 text-sm">
-        <span className="text-neutral-500">Selected:</span>
-        <span className="font-medium">{typeLabel}</span>
+      <div className="mb-8 inline-flex items-center gap-2 rounded-lg border border-foreground/10 bg-background px-4 py-2 text-sm">
+        <span className="text-foreground/80">Selected:</span>
+        <span className="font-medium text-foreground">{typeLabel}</span>
       </div>
 
-      {/* Country / Location */}
       <div className="mb-6">
         <Label hint="For accurate timezone">Location</Label>
         <Select
@@ -158,7 +155,6 @@ export function ConfigPanel({ state, onChange }: ConfigPanelProps) {
         </Select>
       </div>
 
-      {/* Life Calendar options */}
       {state.selectedType === "life" && (
         <div className="mb-6 space-y-4">
           <div>
@@ -183,7 +179,6 @@ export function ConfigPanel({ state, onChange }: ConfigPanelProps) {
         </div>
       )}
 
-      {/* Goal options */}
       {state.selectedType === "goal" && (
         <div className="mb-6 space-y-4">
           <div>
@@ -215,15 +210,13 @@ export function ConfigPanel({ state, onChange }: ConfigPanelProps) {
         </div>
       )}
 
-      {/* Colors */}
       <div className="mb-6">
         <Label>Colors</Label>
         <div className="mb-3 grid grid-cols-2 gap-3">
-          {/* Background */}
           <div>
             <p className="mb-1.5 text-xs text-neutral-500">Background</p>
             <div
-              className="flex cursor-pointer items-center gap-2.5 rounded-lg border border-white/10 bg-neutral-950 px-3 py-2 transition-colors hover:border-white/20"
+              className="flex cursor-pointer items-center gap-2.5 rounded-lg border border-foreground/10 bg-background px-3 py-2 transition-colors hover:border-foreground/20"
               onClick={() => document.getElementById("bg-color-input")?.click()}
             >
               <input
@@ -233,16 +226,15 @@ export function ConfigPanel({ state, onChange }: ConfigPanelProps) {
                 onChange={(e) => onChange({ bgColor: e.target.value })}
                 className="h-7 w-7 cursor-pointer rounded bg-transparent"
               />
-              <span className="font-mono text-xs uppercase text-neutral-400">
+              <span className="font-mono text-xs uppercase text-foreground/80">
                 {state.bgColor}
               </span>
             </div>
           </div>
-          {/* Accent */}
           <div>
             <p className="mb-1.5 text-xs text-neutral-500">Accent</p>
             <div
-              className="flex cursor-pointer items-center gap-2.5 rounded-lg border border-white/10 bg-neutral-950 px-3 py-2 transition-colors hover:border-white/20"
+              className="flex cursor-pointer items-center gap-2.5 rounded-lg border border-foreground/10 bg-background px-3 py-2 transition-colors hover:border-foreground/20"
               onClick={() =>
                 document.getElementById("accent-color-input")?.click()
               }
@@ -254,14 +246,13 @@ export function ConfigPanel({ state, onChange }: ConfigPanelProps) {
                 onChange={(e) => onChange({ accentColor: e.target.value })}
                 className="h-7 w-7 cursor-pointer rounded bg-transparent"
               />
-              <span className="font-mono text-xs uppercase text-neutral-400">
+              <span className="font-mono text-xs uppercase text-foreground/80">
                 {state.accentColor}
               </span>
             </div>
           </div>
         </div>
 
-        {/* Presets */}
         <div className="flex gap-2">
           {COLOR_PRESETS.map((preset) => (
             <button
@@ -270,7 +261,7 @@ export function ConfigPanel({ state, onChange }: ConfigPanelProps) {
               onClick={() =>
                 onChange({ bgColor: preset.bg, accentColor: preset.accent })
               }
-              className="flex gap-0.5 rounded-lg border border-white/10 bg-neutral-950 p-2 transition-all hover:border-white/40"
+              className="flex gap-1 rounded-lg border border-foreground/10 bg-background p-2 transition-all hover:border-foreground/40"
             >
               <span
                 className="h-4 w-4 rounded-[3px]"
@@ -280,10 +271,9 @@ export function ConfigPanel({ state, onChange }: ConfigPanelProps) {
                 }}
               />
               <span
-                className="h-4 w-4 rounded-[3px]"
+                className="h-4 w-4 rounded-[3px] border-[1px] border-black"
                 style={{
                   background: preset.accent,
-                  border: "1px solid rgba(255,255,255,0.1)",
                 }}
               />
             </button>
@@ -291,7 +281,6 @@ export function ConfigPanel({ state, onChange }: ConfigPanelProps) {
         </div>
       </div>
 
-      {/* Device */}
       <div className="mb-6">
         <Label hint={`${state.width} × ${state.height}`}>Device</Label>
         <Select
@@ -319,15 +308,14 @@ export function ConfigPanel({ state, onChange }: ConfigPanelProps) {
         </Select>
       </div>
 
-      {/* Generated URL */}
-      <div className="mt-8 border-t border-white/10 pt-8">
+      <div className="mt-8 border-t border-foreground/10 pt-8">
         <Label>Your Wallpaper URL</Label>
         <div className="flex gap-2">
           <input
             type="text"
             readOnly
             value={generatedUrl ?? "Configure options above…"}
-            className="flex-1 rounded-lg border border-white/10 bg-neutral-950 px-4 py-3 font-mono text-xs text-neutral-400 focus:outline-none"
+            className="flex-1 rounded-lg border border-foreground/10 bg-background px-4 py-3 font-mono text-xs text-foreground/80 focus:outline-none"
           />
           <button
             onClick={handleCopy}
@@ -335,7 +323,7 @@ export function ConfigPanel({ state, onChange }: ConfigPanelProps) {
             className={cn(
               "flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition-all duration-150",
               generatedUrl
-                ? "bg-white text-black hover:scale-[1.02] active:scale-[0.98]"
+                ? "bg-foreground text-background hover:scale-[1.02] active:scale-[0.98]"
                 : "cursor-not-allowed bg-neutral-800 text-neutral-500",
             )}
           >

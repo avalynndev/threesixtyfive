@@ -31,7 +31,7 @@ export interface AppState {
   selectedDevice: Device | null;
 }
 
-export const WORKER_URL = "https://365tsf.vercel.app/api";
+export const WORKER_URL = "https://365tsf.vercel.app/";
 
 export const COLOR_PRESETS = [
   { label: "Classic", bg: "#000000", accent: "#FFFFFF" },

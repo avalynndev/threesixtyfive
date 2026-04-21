@@ -55,7 +55,6 @@ export function TypesSection({ selectedType, onSelect }: TypesSectionProps) {
   return (
     <section id="types" className="px-6 py-24">
       <div className="mx-auto max-w-6xl">
-        {/* Header */}
         <div className="mb-16 text-center">
           <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-neutral-600">
             Choose Your Style
@@ -65,7 +64,6 @@ export function TypesSection({ selectedType, onSelect }: TypesSectionProps) {
           </h2>
         </div>
 
-        {/* Cards grid */}
         <div className="grid gap-6 md:grid-cols-3">
           {cards.map((card) => (
             <TypeCard
