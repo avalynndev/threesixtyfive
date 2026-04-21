@@ -65,8 +65,6 @@ export const countryTimezones: Record<string, string> = {
   vn: "Asia/Ho_Chi_Minh",
 };
 
-
-
 export function getTimezone(countryCode: string): string {
   return countryTimezones[countryCode.toLowerCase()] || "UTC";
 }

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { GitHubLogoIcon, ReaderIcon } from "@radix-ui/react-icons";
 import { ModeToggle } from "./mode-toggle";
 
 const GridLogo = ({ size = 24 }: { size?: number }) => (
@@ -115,6 +115,12 @@ export function Navbar() {
         </div>
         <div className="space-x-2">
           <ModeToggle />
+          <Link href="/docs" rel="noopener noreferrer">
+            <Button variant="outline">
+              <ReaderIcon className="h-20 w-20" />
+              <span className="hidden sm:inline">API</span>
+            </Button>
+          </Link>
 
           <Link
             href="https://github.com/avalynndev/threesixtyfive"

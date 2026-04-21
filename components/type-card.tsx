@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { WallpaperType } from "@/lib/types";
-import { getDayOfYear, getTotalDaysInYear, getYearStats } from "@/lib/utils";
+import { getDayOfYear } from "@/lib/utils";
 
 function YearGridPreview() {
   const day = getDayOfYear();

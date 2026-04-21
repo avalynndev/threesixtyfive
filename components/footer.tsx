@@ -71,27 +71,27 @@ const GridLogo = () => (
 );
 
 export function Footer() {
-    return (
-      <footer className="border-t border- px-6 py-12">
-        <div className="mx-auto flex max-w-6xl items-center justify-between">
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2 text-base font-semibold text-foreground">
-              <GridLogo />
-              <span>ThreeSixtyFive</span>
-            </div>
-            <p className="text-sm text-foreground/80">Time, visualized</p>
+  return (
+    <footer className="border-t border- px-6 py-12">
+      <div className="mx-auto flex max-w-6xl items-center justify-between">
+        <div className="flex items-center gap-6">
+          <div className="flex items-center gap-2 text-base font-semibold text-foreground">
+            <GridLogo />
+            <span>ThreeSixtyFive</span>
           </div>
-          <Link
-            href="https://github.com/avalynndev/threesixtyfive"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button>
-              <GitHubLogoIcon className="h-20 w-20" />
-              <span className="hidden sm:inline">GitHub</span>
-            </Button>
-          </Link>
+          <p className="text-sm text-foreground/80">Time, visualized</p>
         </div>
-      </footer>
-    );
+        <Link
+          href="https://github.com/avalynndev/threesixtyfive"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button>
+            <GitHubLogoIcon className="h-20 w-20" />
+            <span className="hidden sm:inline">GitHub</span>
+          </Button>
+        </Link>
+      </div>
+    </footer>
+  );
 }

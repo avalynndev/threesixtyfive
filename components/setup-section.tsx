@@ -42,8 +42,8 @@ const IOS_STEPS: Step[] = [
           <Code>https://365tsf.vercel.app/api/generate?…</Code>
         </p>
         <p>
-          <strong>2. Set Wallpaper Photo:</strong> Choose "Lock Screen" as
-          target.
+          <strong>2. Set Wallpaper Photo:</strong> Choose &quot;Lock
+          Screen&quot; as target.
         </p>
       </div>
     ),
@@ -53,7 +53,7 @@ const IOS_STEPS: Step[] = [
     title: "Finalize",
     content: (
       <p>
-        In "Set Wallpaper Photo", tap arrow (→):
+        In &quot;Set Wallpaper Photo&quot;, tap arrow (→):
         <br />
         Disable <strong>Crop to Subject</strong>
         <br />

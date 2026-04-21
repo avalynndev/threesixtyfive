@@ -17,8 +17,46 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ThreeSixtyFive",
-  description: "A website where you can generate a automated wallpaper for your life, goal or year.",
+  title: {
+    default: "ThreeSixtyFive",
+    template: "%s — ThreeSixtyFive",
+  },
+  description:
+    "Dynamic lock screen wallpapers that update daily. Track your year progress, life calendar, or countdown to your goals.",
+  keywords: [
+    "wallpaper",
+    "lock screen",
+    "year progress",
+    "life calendar",
+    "goal countdown",
+    "dynamic wallpaper",
+    "iOS shortcut",
+    "Android MacroDroid",
+  ],
+  authors: [{ name: "avalynndev" }],
+  creator: "avalynndev",
+  metadataBase: new URL("https://365tsf.vercel.app"),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://365tsf.vercel.app",
+    siteName: "ThreeSixtyFive",
+    title: "ThreeSixtyFive — Visualize Your Time",
+    description:
+      "365 dots. One fills each day. Dynamic wallpapers for your lock screen that update automatically.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ThreeSixtyFive — Visualize Your Time",
+    description:
+      "365 dots. One fills each day. Dynamic wallpapers for your lock screen that update automatically.",
+    creator: "@avalynndev",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
 };
 
 export default function RootLayout({
@@ -39,6 +77,9 @@ export default function RootLayout({
         inter.variable,
       )}
     >
+      <head>
+        <meta name="apple-mobile-web-app-title" content="365" />
+      </head>
       <body className="min-h-full flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
