@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<center> <h1><a href="https://365tsf.vercel.app/">ThreeSixtyFive</a></h1></center>
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=react,nextjs,tailwind,ts" />
+  <br/>
+  <a href=""><kbd>⚫️ shadcn-ui</kbd></a>
+</p>
+<br/><br/>
 
-## Getting Started
+# What is ThreeSixtyFive?
 
-First, run the development server:
+ThreeSixtyFive is a website that turns your year into a grid of 365 dots — one for every day. As the year moves forward, each dot fills in. It's a quiet, visual reminder of time passing. You can set it as a dynamic wallpaper that updates automatically every day so you never lose track of where you are in the year.
 
+It also supports a life calendar (weeks of your life) and goal countdowns if you want to track something more personal.
+
+# Features
+
+- 365-dot year grid that fills in as each day passes
+- Life calendar mode — every week of your life as a dot
+- Goal countdown mode for milestones, launches, vacations
+- Fully customizable colors, accent, and background
+- Wallpaper URL generation for dynamic wallpapers on iOS and Android
+- Timezone-aware via country selection
+- Supports 30+ phone models for accurate resolution
+
+# Self Hosting Guide
+
+### Prerequisites
+
+- Node.js 20 or later
+- npm or bun package manager
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/avalynndev/threesixtyfive.git
+cd threesixtyfive
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Learn More
+### Building for Production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Setting Up Dynamic Wallpapers (iOS)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Copy your generated wallpaper URL from the site
+2. Open the **Shortcuts** app → Automation tab → New Automation
+3. Set trigger to **Time of Day: 6:00 AM**, repeat daily, run immediately
+4. Add action: **Get Contents of URL** → paste your wallpaper URL
+5. Add action: **Set Wallpaper Photo** → choose Lock Screen
+6. In "Set Wallpaper Photo", tap the arrow (→) and disable both **Crop to Subject** and **Show Preview**
 
-## Deploy on Vercel
+By following these steps, you can host ThreeSixtyFive on your own server and make it accessible to others.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Favalynndev%2Fthreesixtyfive)
